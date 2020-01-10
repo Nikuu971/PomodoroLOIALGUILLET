@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pomodoro_Final", "pomodoro_Final\pomodoro_Final.csproj", "{7472E5F6-61D8-474F-8DE7-4B99804E2EC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PomoTestUnit", "PomoTestUnit\PomoTestUnit.csproj", "{FC436045-678B-4C53-9115-43AC824746D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7472E5F6-61D8-474F-8DE7-4B99804E2EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7472E5F6-61D8-474F-8DE7-4B99804E2EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7472E5F6-61D8-474F-8DE7-4B99804E2EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7472E5F6-61D8-474F-8DE7-4B99804E2EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC436045-678B-4C53-9115-43AC824746D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC436045-678B-4C53-9115-43AC824746D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC436045-678B-4C53-9115-43AC824746D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC436045-678B-4C53-9115-43AC824746D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC435355-45CB-4659-B04D-D744DB05DC57}
+	EndGlobalSection
+EndGlobal
