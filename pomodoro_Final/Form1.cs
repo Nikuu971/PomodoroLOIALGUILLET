@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Timers;
 using System.Windows.Forms;
+using System.Linq;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.IO;
 
 namespace pomodoro_Final
 {
@@ -14,12 +20,14 @@ namespace pomodoro_Final
         bool DebutCycle = true;
         bool pauseSwitch = false;
         string tag;
-        ListViewItem listTag;
+        ArrayList listTag;
         int NbrCycle = 0;
 
         public Form1()
         {
+            // Initialisation de l'application form
             InitializeComponent();
+            //Mise en place des Timer
             t = new System.Timers.Timer();
             t.Interval = 1000;
             t.Elapsed += OnTimeEvent;
@@ -27,13 +35,14 @@ namespace pomodoro_Final
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            t = new System.Timers.Timer();
-            t.Interval = 1000;
-            t.Elapsed += OnTimeEvent;
         }
 
 
-
+        //Action a chaque timer (toute les secondes)
+        //Lorsqu'un Cycle est a 0 donc qu'il n'y a aucune Session (session = 25+5+25+5+25+5+25+15)
+        //Mise en place du compteur minute/seconde
+        //lorsque le decompte est fini le timer s'arrete et l'application ce met en mode pause
+        //
         private void OnTimeEvent(object sender, ElapsedEventArgs e)
         {
             Invoke(new Action(() =>
@@ -61,6 +70,11 @@ namespace pomodoro_Final
             }));
         }
 
+
+        //Initialise les minutes et les seconde dans chaque cas (le cas de la marche, le cas de la pause et le cas de la grande pause)
+        //25 minute pour le pomodoro, 5 pour la pause et 15 pour la grande pause
+        //Lors de la pause 
+        //
         public void Init()
         {
             if(!pauseSwitch)
@@ -105,13 +119,13 @@ namespace pomodoro_Final
         {
             if (!Marche)
             {
-                listTag = new ListViewItem();
+                listTag = new ArrayList();
                 tag = tagTxtBox.Text;
+                listTag.Add(tag);
                 label3.Text = tagTxtBox.Text;
                 tagTxtBox.Text = "";
                 Marche = true;
-                Console.WriteLine(listTag);
-                listeview.Items.Add(listTag);
+                JsonAlimenter(listTag);
             }
             t.Start();
         }
@@ -127,6 +141,23 @@ namespace pomodoro_Final
         {
             t.Stop();
             Application.DoEvents();
+        }
+
+        void JsonAlimenter(ArrayList listtag)
+        {
+            foreach (var list in listtag)
+            {
+               string item = @"
+                   {
+                    ""TagPomodoro"":{
+                        ""DatePomo"":""";
+                item += DateTime.Now.Date.ToString() + @""",""TagPodoro"":""";
+                item += list + @"""}" +
+                    "   ,}";
+                var itemJObj = JObject.Parse(item);
+                File.WriteAllText(@"C:\Users\memin\source\repos\pomodoro_Final\pomodoro_Final\TagPomodo.json", itemJObj.ToString());
+            }
+            
         }
 
         void Reset()

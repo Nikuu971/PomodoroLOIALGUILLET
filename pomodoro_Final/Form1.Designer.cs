@@ -34,9 +34,9 @@
             this.Hrst = new System.Windows.Forms.Button();
             this.tagTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listeview = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tagBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txtResult
@@ -96,21 +96,10 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Votre tag";
             // 
-            // listeview
-            // 
-            this.listeview.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.listeview.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listeview.HideSelection = false;
-            this.listeview.Location = new System.Drawing.Point(30, 334);
-            this.listeview.Name = "listeview";
-            this.listeview.Size = new System.Drawing.Size(209, 130);
-            this.listeview.TabIndex = 7;
-            this.listeview.UseCompatibleStateImageBehavior = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 314);
+            this.label2.Location = new System.Drawing.Point(77, 330);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 17);
             this.label2.TabIndex = 8;
@@ -124,12 +113,21 @@
             this.label3.Size = new System.Drawing.Size(0, 17);
             this.label3.TabIndex = 9;
             // 
+            // tagBox
+            // 
+            this.tagBox.FormattingEnabled = true;
+            this.tagBox.ItemHeight = 16;
+            this.tagBox.Location = new System.Drawing.Point(30, 350);
+            this.tagBox.Name = "tagBox";
+            this.tagBox.Size = new System.Drawing.Size(209, 116);
+            this.tagBox.TabIndex = 10;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(282, 476);
+            this.Controls.Add(this.tagBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listeview);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tagTxtBox);
             this.Controls.Add(this.Hrst);
@@ -150,8 +148,8 @@
         private System.Windows.Forms.Button Hrst;
         private System.Windows.Forms.TextBox tagTxtBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listeview;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListBox tagBox;
     }
 }
