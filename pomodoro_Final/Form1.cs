@@ -73,7 +73,7 @@ namespace pomodoro_Final
 
         //Initialise les minutes et les seconde dans chaque cas (le cas de la marche, le cas de la pause et le cas de la grande pause)
         //25 minute pour le pomodoro, 5 pour la pause et 15 pour la grande pause
-        //Lors de la pause 
+        //Lors de la longue pause il y a un reset complet du cycle.
         //
         public void Init()
         {
@@ -103,6 +103,8 @@ namespace pomodoro_Final
             }
             
         }
+        //Fonction qui determine si une pause doit etre fait
+        //
         public bool EnPause()
         {
             if(NbrPause==NbrPomodo)
@@ -114,7 +116,7 @@ namespace pomodoro_Final
                 return true;
             }
         }
-
+        //Demarre le timer et met en place le tag
         private void StartBtn_Click(object sender, EventArgs e)
         {
             if (!Marche)
@@ -130,7 +132,7 @@ namespace pomodoro_Final
             t.Start();
         }
 
-
+        //Arrete le timer
         private void StopBtn_Click_1(object sender, EventArgs e)
         {
             Marche = false;
@@ -143,6 +145,9 @@ namespace pomodoro_Final
             Application.DoEvents();
         }
 
+        //Alimente le Json a partir de la liste de tag (Ongoing)
+        //
+        //
         void JsonAlimenter(ArrayList listtag)
         {
             foreach (var list in listtag)
@@ -160,6 +165,7 @@ namespace pomodoro_Final
             
         }
 
+        //Permet de reset tout les paramettre et de recommencer le cycle du pomodoro
         void Reset()
         {
             m = 0;
